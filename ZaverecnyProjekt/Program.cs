@@ -43,12 +43,12 @@ do
             {
                 Console.WriteLine("Poviná položka. Zadejte telefonní číslo pojištěného:");
             }
-            Console.WriteLine("Zadejte věk:");
-            //Kontrola zadání věku jako čísla
-            int vek;
-            while (!int.TryParse(Console.ReadLine(), out vek))
-                Console.WriteLine("Neplatný věk, zadejte prosím znovu.");
-            pojistenci.Add(new Pojistenci(jmeno, prijmeni, vek, telefon));
+            Console.WriteLine("Zadejte datum narození:");
+            //Kontrola zadání data narození
+            DateOnly datumNarozeni;
+            while (!DateOnly.TryParse(Console.ReadLine(), out datumNarozeni))
+                Console.WriteLine("Neplatné datum, zadejte prosím znovu.");
+            pojistenci.Add(new Pojistenci(jmeno, prijmeni, datumNarozeni, telefon));
             Console.WriteLine("Data byla uložena. Pokračujte libovolnou klávesou...");
             Console.ReadKey();
             break;
@@ -91,7 +91,6 @@ do
                 foreach (var v in hledani)
                     Console.WriteLine(v);
             }
-
             else Console.WriteLine("Vašemu dotazu neodpovídají žádní pojištěnci.");
             Console.WriteLine("Pokračujte libovolnou klávesou...");
             Console.ReadKey();
